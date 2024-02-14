@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+// Outlet: An <Outlet> should be used in parent route element to render their child route elements. This allows nested UI to show up when child routes are rendered.
+// FYI: We dont need outlet necessarily because we can simply put our headers into EACH component but then that would make our code not DRY
+// Think of the App.js file as our file that holds the headers PLUS our component
+// In App.js we need to add in the outlet
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import { Outlet } from "react-router-dom";
+import Header from "./components/Header";
+const App = () => {
+  return(
+    <div className='App'>
+      <Header/>
+      <Outlet />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
+
+// Keep in mind: the ORDER IN WHICH THE route element and thier paths matter.
